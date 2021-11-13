@@ -1,0 +1,60 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Program3:
+//		A program which returns addition of all element from singly linear linked list.
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.util.*;
+
+class SinglyLL
+{
+
+	static int Addition(LinkedList obj)
+	{
+		int iCount=1,iSum=0;
+		Iterator <Integer>iObj = obj.iterator();
+		while(iObj.hasNext())
+		{
+			iSum = iSum + iObj.next();
+		
+		}
+
+		return iSum;
+	}
+
+}
+
+class Program3
+{
+	public static void main(String[] args)
+	{
+		LinkedList <Integer>lObj = new LinkedList<Integer>();
+		int arr[] = new int[]{10,20,30,40};
+
+		for(int i=0;i<4;i++)
+		{
+			lObj.add(arr[i]);
+		}
+
+		Iterator <Integer>iObj = lObj.iterator();
+		System.out.print("Input Linked List: [");
+		while(iObj.hasNext())
+		{
+			System.out.print(iObj.next()+", ");
+		}
+
+		System.out.println("]");
+		int iRet = SinglyLL.Addition(lObj);		
+		System.out.println("Addition: "+iRet);
+		
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//		Output:
+//			Input Linked List: [10, 20, 30, 40, ]
+//			Addition: 100
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
