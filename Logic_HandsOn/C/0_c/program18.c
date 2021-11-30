@@ -50,13 +50,13 @@ int main()
 Output:
 Enter number: 2395
 1
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment6$ ./MyExe 
+v
 Enter number: 1018
 0
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment6$ ./MyExe 
+
 Enter number: 4521
 2
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment6$ ./MyExe 
+
 Enter number: 9922
 0
 
