@@ -1,0 +1,35 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function name 	: DisplayASCII
+// Input	 	: -
+// Output	 	: void
+// Description   	: It is Used to display ASCII table.
+// Author	 	: Vishal Tejkant Patil
+// Date		: 25/09/2021
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#include<stdio.h>
+
+void DisplayASCII()
+{
+
+	printf("Decimal\t Hexadecimal \t octal \t Character\n");
+	int i=0;
+	for(i=0;i<127;i++)
+	{
+		printf("%d \t\t %x \t %o\t %c\n",i,i,i,i);
+	}
+}
+
+int main()
+{
+	DisplayASCII();
+
+	return 0;
+}
+/*
+OUTPUT:
+
+*/
