@@ -56,16 +56,16 @@ int main()
 /*
 OUTPUT:
 
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe
+
 Enter number: 2395
 There is no Zero
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe
+
 Enter number: 1018
 It contains Zero
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe
+
 Enter number: 9000
 It contains Zero
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe
+
 Enter number: 10687
 It contains Zero
 */
