@@ -48,16 +48,16 @@ int main()
 
 /*
 Output:
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment6$ ./MyExe 
+ 
 Enter number: 2395
 270
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment6$ ./MyExe 
+ 
 Enter number: 1018
 8
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment6$ ./MyExe 
+
 Enter number: 9440
 144
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment6$ ./MyExe 
+
 Enter number: 922432
 864
 */
