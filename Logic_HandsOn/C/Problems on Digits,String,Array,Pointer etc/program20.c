@@ -1,0 +1,71 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function name 	: CountDiff
+// Input	 	: Integer
+// Output	 	: Integer
+// Description   	: It is use to return the difference between summation of even digits and summation of odd digits
+// Author	 	: Vishal Tejkant Patil
+// Date		 	: 15/09/2021
+// Time Complexity	: O(N)	where n is number of digits (N>=0)
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include<stdio.h>
+int CountDiff(int iNo)
+{
+	int iDigit = 0,iSumEven=0,iSumOdd=0,iAns=0;
+
+	if(iNo<0)
+	{
+		iNo = -iNo;
+	}
+
+	while(iNo>0)
+	{
+		iDigit = iNo%10;
+		if(iDigit%2==0)
+		{
+			iSumEven = iSumEven+iDigit;
+		}
+		else
+		{
+			iSumOdd = iSumOdd+iDigit;
+		}
+		iNo = iNo/10;
+	}
+
+	iAns = iSumEven-iSumOdd;
+	return iAns;
+}
+
+int main()
+{
+	int iValue = 0,iRet=0;
+
+	printf("Enter number: ");
+	scanf("%d",&iValue);
+
+	iRet = CountDiff(iValue);
+	printf("%d\n",iRet);
+
+	return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Output:
+//
+//		Enter number: 2395
+//		-15
+//
+//		Enter number: 1018
+//		6
+//
+//		Enter number: 8440
+//		16
+//
+//		Enter number: 5733
+//		-18
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
