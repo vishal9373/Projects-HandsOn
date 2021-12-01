@@ -53,13 +53,14 @@ OUTPUT:
 
 Enter number: 2395
 3
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe
+
 Enter number: 1018
 3
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe
+v
+
 Enter number: 9440
 3
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe
+
 Enter number: 96672
 1
 
