@@ -42,25 +42,24 @@ int main()
 
 /*
 Output:
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe 
 Enter number: 2395
 5
 9
 3
 2
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe 
+
 Enter number: 1018
 8
 1
 0
 1
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe 
+
 Enter number: -1018
 8
 1
 0
 1
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment5$ ./MyExe 
+
 Enter number: 9000
 0
 0
