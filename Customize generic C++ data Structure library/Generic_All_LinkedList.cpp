@@ -18,6 +18,15 @@ struct Doubly_List
 
 };
 
+template<typename T>
+struct node
+{
+	int data;
+	struct node* lChild;
+	struct node* rChild;
+
+};
+
 /////////////////////////////////////////////////////////////////////////////////
 //
 // Class Name		: SinglyLL	
@@ -127,6 +136,40 @@ class DoublyCL
 		void DeleteAtPos(int ipos);
 		void Display();
 		int Count();
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//
+// Class Name		: Tree	
+// Description		: This class represents Tree
+//
+/////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+class Tree
+{
+	private:
+		node<T>* first;
+
+	public:
+		Tree();
+		void Insert(T);
+		bool Search(T);
+		int Count();
+		int CountParent();
+		int CountLeaf();
+		void InOrder();	
+		void PreOrder();	
+		void PostOrder();	
+	
+		int CountNeck(node<T>*);
+		int CountNeckParent(node<T>*);
+		int CountNeckLeaf(node<T>*);
+		void InOrderNeck(node<T>*);	
+		void PreOrderNeck(node<T>*);	
+		void PostOrderNeck(node<T>*);	
+	
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -1517,6 +1560,491 @@ void DoublyCL<T>::DeleteAtPos(int ipos)
 	}
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: Tree
+// Function Date		: 17/11/2021
+// Function Author		: Vishal Patil
+// Parameters			: NONE
+// Description			: This is constructor of class SinglyLL
+// Returns			: NONE
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+Tree<T>::Tree()
+{
+	first = NULL;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: Insert
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] T iNo.
+// 	Holds the entry which is to be added
+//
+// Description:
+//	This Function adds the node according to its sorting order.
+//
+// Returns:
+//	void 	
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Tree<T>::Insert(T iNo)
+{
+
+	node<T>* newn = new node<T>;
+
+	newn->data = iNo;
+	newn->lChild = NULL;
+	newn->rChild = NULL;
+
+	if(first == NULL)
+	{
+		first = newn;
+	}
+	else
+	{
+		node<T>* temp = first;
+
+		while(1)
+		{
+			if(iNo == temp->data)
+			{
+				cout<<"Duplicate Data\n";
+				delete newn;
+				break;
+			}
+			else if(iNo > temp->data)
+			{
+				if(temp->rChild == NULL)
+				{
+					temp->rChild = newn;
+					break;
+				}
+
+				temp = temp->rChild;
+
+			}
+			else if(iNo < temp->data)
+			{
+				if(temp->lChild == NULL)
+                                {
+                                        temp->lChild = newn;
+                                        break;
+                                }
+
+                                temp = temp->lChild;
+
+			}
+
+		}
+	}
+	
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: Search
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] T iNo.
+// 	Holds the entry which is to be search
+//
+// Description:
+//	This Function search the node according to its sorting order.
+//
+// Returns:
+//	boolean
+//	It returns TRUE, if the element is present. 
+//	It returns FALSE, if the element is absent.	
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+bool Tree<T>::Search(T iNo)
+{
+	bool bAns = false;
+
+	if(first == NULL)
+	{
+		cout<<"Empty\n";
+		return bAns;
+	}
+
+	node<T>* temp = first;
+
+	while(temp!=NULL)
+	{
+		if(temp->data == iNo)
+		{
+			bAns = true;
+			break;
+		}
+		else if(iNo > temp->data)
+		{
+			temp = temp->rChild;
+		}
+		else if(iNo < temp->data)
+		{
+			temp = temp->lChild;
+		}
+	}
+
+	return bAns;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: Count
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	None
+// 	
+// Description:
+//	This Function Calls CountNeck().
+//
+// Returns:
+//	Integer
+//	returns the number of nodes in a tree 
+//		
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+template<class T>
+int Tree<T>::Count()
+{
+	node<T>* Head = first;
+	return(CountNeck(Head));
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: CountNeck
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] node<T>* head.
+// 	Holds the address of first pointer
+//
+// Description:
+//	This Function is used to count number of nodes in a tree.
+//
+// Returns:
+//	integer
+//	returns the number of nodes in a tree 
+//		
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+int Tree<T>::CountNeck(node<T>* Head)
+{
+	static int iCnt=0;
+	if(Head!=NULL)
+	{
+		iCnt++;
+		CountNeck(Head->lChild);	
+		CountNeck(Head->rChild);	
+	}
+
+	return iCnt;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: CountParent
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	None
+// 	
+// Description:
+//	This Function Calls CountNeckParent().
+//
+// Returns:
+//	Integer
+//	returns the number of Parent nodes in a tree 
+//		
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+int Tree<T>::CountParent()
+{
+        node<T>* Head = first;
+        return(CountNeckParent(Head));
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: CountNeckParent
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] node<T>* head.
+// 	Holds the address of first pointer
+//
+// Description:
+//	This Function is used to count number of Parent nodes in a tree.
+//
+// Returns:
+//	integer
+//	returns the number of Parent nodes in a tree 
+//		
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+int Tree<T>::CountNeckParent(node<T>* Head)
+{
+        static int iCnt=0;
+        if(Head!=NULL)
+        {
+		if(Head->lChild!=NULL || Head->rChild!=NULL)
+		{	
+                	iCnt++;
+		}	
+                CountNeckParent(Head->lChild);
+                CountNeckParent(Head->rChild);
+        }
+
+        return iCnt;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: CountLeaf
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	None
+// 	
+// Description:
+//	This Function Calls CountNeckLeaf().
+//
+// Returns:
+//	Integer
+//	returns the number of Leaf nodes in a tree 
+//		
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+int Tree<T>::CountLeaf()
+{
+        node<T>* Head = first;
+        return(CountNeckLeaf(Head));
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: CountNeckLeaf
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] node<T>* head.
+// 	Holds the address of first pointer
+//
+// Description:
+//	This Function is used to count number of Leaf nodes in a tree.
+//
+// Returns:
+//	integer
+//	returns the number of Leaf nodes in a tree 
+//		
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+int Tree<T>::CountNeckLeaf(node<T>* Head)
+{
+        static int iCnt=0;
+        if(Head!=NULL)
+        {
+		if(Head->lChild==NULL && Head->rChild==NULL)
+		{
+                	iCnt++;
+		}	
+                CountNeckLeaf(Head->lChild);
+                CountNeckLeaf(Head->rChild);
+        }
+
+        return iCnt;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: InOrder
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	None
+// 	
+// Description:
+//	This Function Calls InOrderNeck().
+//
+// Returns:
+//	void 
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Tree<T>::InOrder()
+{
+	node<T>* Head = first;
+	InOrderNeck(Head);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: InOrderNeck
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] node<T>* head.
+// 	Holds the address of first pointer
+//
+// Description:
+//	This Function Displays the nodes in InOrder way.
+//
+// Returns:
+//	void 
+//		
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+template<class T>
+void Tree<T>::InOrderNeck(node<T>* Head)
+{
+	if(Head != NULL)
+	{
+	
+		InOrderNeck(Head->lChild);
+		cout<<Head->data<<"\n";
+		InOrderNeck(Head->rChild);
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: PreOrder
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	None
+// 	
+// Description:
+//	This Function Calls PreOrderNeck().
+//
+// Returns:
+//	void 
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Tree<T>::PreOrder()
+{
+        node<T>* Head = first;
+        PreOrderNeck(Head);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: PreOrderNeck
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] node<T>* head.
+// 	Holds the address of first pointer
+// 	
+// Description:
+//	This Function Displays the function in PreOrder way.
+//
+// Returns:
+//	void 
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Tree<T>::PreOrderNeck(node<T>* Head)
+{
+        if(Head != NULL)
+        {
+
+                cout<<Head->data<<"\n";
+                PreOrderNeck(Head->lChild);
+                PreOrderNeck(Head->rChild);
+        }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: PostOrder
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	None
+// 	
+// Description:
+//	This Function Calls PostOrderNeck().
+//
+// Returns:
+//	void 
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Tree<T>::PostOrder()
+{
+        node<T>* Head = first;
+        PostOrderNeck(Head);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name		: PostOrderNeck
+// Function Date                : 17/11/2021
+// Function Author              : Vishal Patil
+// Parameters:
+// 	[IN] node<T>* head.
+// 	Holds the address of first pointer
+// 	
+// Description:
+//	This Function is used to display the elements in post order way.
+//
+// Returns:
+//	void 
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+void Tree<T>::PostOrderNeck(node<T>* Head)
+{
+        if(Head != NULL)
+        {
+
+                PostOrderNeck(Head->lChild);
+                PostOrderNeck(Head->rChild);
+                cout<<Head->data<<"\n";
+        }
+}
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name	: Entry point function
@@ -1693,32 +2221,3 @@ int main()
 
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
