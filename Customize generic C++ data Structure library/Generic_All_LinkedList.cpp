@@ -21,7 +21,7 @@ struct Doubly_List
 template<typename T>
 struct node
 {
-	int data;
+	T data;
 	struct node* lChild;
 	struct node* rChild;
 
