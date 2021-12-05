@@ -1,0 +1,59 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Program5:
+//		Accept on character from user and check whether that character is vowel (a,e,i,o,u) or not.
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.util.Scanner;
+
+class Solution
+{	
+	boolean ChkVowel(char cValue)
+	{
+
+		boolean bAns=false;
+		if(cValue=='a' || cValue=='e' || cValue=='i' || cValue=='o' || cValue=='u'||cValue=='A'||cValue=='E'||cValue=='I'||cValue=='O'||cValue=='U')
+		{
+			bAns=true;
+			return bAns;
+		}
+
+		return bAns;
+	}
+}
+
+class Program5
+{
+	public  static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter character:");
+		char ch = s.next().charAt(0);
+
+		boolean bRet=false;
+		Solution sObj = new Solution();
+		bRet = sObj.ChkVowel(ch);
+	
+		if(bRet== true)
+		{
+			System.out.println("It is  Vowel");
+		}
+		else
+		{
+			System.out.println("It is  not Vowel");
+		}
+
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	OUTPUT:
+//		ENter character
+//		e
+//		Output: It is vowel
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
