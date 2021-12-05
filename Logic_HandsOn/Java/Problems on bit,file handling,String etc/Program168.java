@@ -1,0 +1,48 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Program:
+//		java program to accept directory name from user and create that directory.
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.io.*;
+import java.util.Scanner;
+
+class Program8
+{
+	public static void main(String[] args)throws IOException
+	{
+		Scanner sObj = new Scanner(System.in);
+
+		System.out.println("Enter directory name: ");
+		String str = sObj.nextLine();
+		
+		File f = new File(str);
+
+		//File f = new File("/home//vislyapatil//Marvellous//LogicBuilding//Assignments//Solutions//Assignment50//newFolder");
+
+		if(!f.exists())
+		{
+			if(f.mkdir())
+			{
+				System.out.println("New Directory created Successfully");
+			}
+			else
+			{
+				System.out.println("Couldn't create directory");
+			
+			}
+		}
+	}
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	OUTPUT:
+//		Enter directory name: 
+//		newFolder
+//		New Directory created Successfully
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
