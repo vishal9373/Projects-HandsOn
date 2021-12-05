@@ -71,7 +71,7 @@ OUTPUT:
 
 Enter number: 135282752
 7th,15th,21st,28th bit is ON
-vislyapatil@vislyapatil-Inspiron-5567:~/Marvellous/LogicBuilding/Assignments/Solutions/Assignment27/C++$ 
+
 
 */
 
